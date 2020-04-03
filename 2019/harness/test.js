@@ -310,7 +310,9 @@ TestExecutor.prototype.onfinished = function() {
         if (test) {
           switch (harnessConfig.testType) {
             case "playbackperf-test":
+              // Add frame test results and status if test failed
               results[test.prototype.desc] = {
+                fail: test.prototype.failures,
                 decodedFrames: test.prototype.decoded_frames,
                 droppedFrames: test.prototype.dropped_frames,
               }
